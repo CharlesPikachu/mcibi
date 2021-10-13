@@ -1,21 +1,14 @@
 '''define the config file for ade20k and vitlarge'''
+import os
 from .base_cfg import *
 
 
 # modify dataset config
 DATASET_CFG = DATASET_CFG.copy()
-DATASET_CFG['train'].update(
-    {
-        'type': 'ade20k',
-        'rootdir': 'data/ADE20k',
-    }
-)
-DATASET_CFG['test'].update(
-    {
-        'type': 'ade20k',
-        'rootdir': 'data/ADE20k',
-    }
-)
+DATASET_CFG.update({
+    'type': 'ade20k',
+    'rootdir': os.path.join(os.getcwd(), 'ADE20k'),
+})
 # modify dataloader config
 DATALOADER_CFG = DATALOADER_CFG.copy()
 # modify optimizer config
@@ -73,9 +66,9 @@ MODEL_CFG.update(
             'opts': {'eps': 1e-6},
         },
         'auxiliary': [
-            {'in_channels': 1024, 'out_channels': 512, 'dropout': 0.1},
-            {'in_channels': 1024, 'out_channels': 512, 'dropout': 0.1},
-            {'in_channels': 1024, 'out_channels': 512, 'dropout': 0.1},
+            {'in_channels': 1024, 'out_channels': 512, 'dropout': 0.1, 'num_convs': 2, 'upsample': {'scale_factor': 4}},
+            {'in_channels': 1024, 'out_channels': 512, 'dropout': 0.1, 'num_convs': 2, 'upsample': {'scale_factor': 4}},
+            {'in_channels': 1024, 'out_channels': 512, 'dropout': 0.1, 'num_convs': 2, 'upsample': {'scale_factor': 4}},
         ],
     }
 )
