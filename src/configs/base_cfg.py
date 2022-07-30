@@ -36,29 +36,27 @@ DATALOADER_CFG = {
 # config for optimizer
 OPTIMIZER_CFG = {
     'type': 'sgd',
-    'sgd': {
-        'learning_rate': 0.01,
-        'momentum': 0.9,
-        'weight_decay': 5e-4,
-    },
-    'max_epochs': 0,
+    'lr': 0.01,
+    'momentum': 0.9,
+    'weight_decay': 5e-4,
     'params_rules': {},
-    'policy': {
-        'type': 'poly',
-        'opts': {'power': 0.9, 'max_iters': None, 'num_iters': None, 'num_epochs': None}
-    },
-    'adjust_period': ['iteration', 'epoch'][0],
+}
+# config for scheduler
+SCHEDULER_CFG = {
+    'type': 'poly',
+    'max_epochs': 0,
+    'power': 0.9,
 }
 # config for losses
 LOSSES_CFG = {
     'loss_aux': {
-        'celoss': {'scale_factor': 0.4, 'opts': {'ignore_index': 255, 'reduction': 'mean'}}
+        'celoss': {'scale_factor': 0.4, 'ignore_index': 255, 'reduction': 'mean'}
     },
     'loss_cls_stage1': {
-        'celoss': {'scale_factor': 0.4, 'opts': {'ignore_index': 255, 'reduction': 'mean'}}
+        'celoss': {'scale_factor': 0.4, 'ignore_index': 255, 'reduction': 'mean'}
     },
     'loss_cls_stage2': {
-        'celoss': {'scale_factor': 1.0, 'opts': {'ignore_index': 255, 'reduction': 'mean'}}
+        'celoss': {'scale_factor': 1.0, 'ignore_index': 255, 'reduction': 'mean'}
     },
 }
 # config for segmentor
@@ -102,8 +100,7 @@ SEGMENTOR_CFG = {
         'use_loss': True,
         'loss_cfg': {
             'celoss': {
-                'scale_factor': 1.0, 
-                'opts': {'reduction': 'mean'}
+                'scale_factor': 1.0, 'reduction': 'mean'
             },
         },
         'update_cfg': {
