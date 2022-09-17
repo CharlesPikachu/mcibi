@@ -1,3 +1,8 @@
+## News
+
+- 2022-09-17: Our extended version of MCIBI has been accepted by TPAMI. Codes are available at [sssegmentation](https://github.com/SegmentationBLWX/sssegmentation), paper is available at [MCIBI++](https://arxiv.org/pdf/2209.04471.pdf).
+
+
 ## Introduction
 
 The official repository for "[Mining Contextual Information Beyond Image for Semantic Segmentation](https://arxiv.org/abs/2108.11819)".
@@ -76,5 +81,13 @@ If this code is useful for your research, please consider citing:
     booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
     pages={7231--7241},
     year={2021}
+}
+
+@article{jin2022mcibi++,
+    title={MCIBI++: Soft Mining Contextual Information Beyond Image for Semantic Segmentation},
+    author={Jin, Zhenchao and Yu, Dongdong and Yuan, Zehuan and Yu, Lequan},
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    year={2022},
+    publisher={IEEE}
 }
 ```
