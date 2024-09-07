@@ -1,3 +1,3 @@
 '''initialize'''
-from .memorynet import MemoryNet
+from .mcibi import MCIBI
 from .memory import FeaturesMemory

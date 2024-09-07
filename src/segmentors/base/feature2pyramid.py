@@ -4,9 +4,8 @@ Function:
 Author:
     Zhenchao Jin
 '''
-import torch
 import torch.nn as nn
-from ...backbones import BuildNormalization, constructnormcfg
+from ...backbones import BuildNormalization
 
 
 '''Feature2Pyramid'''
@@ -19,7 +18,7 @@ class Feature2Pyramid(nn.Module):
             if k == 4:
                 self.upsample_4x = nn.Sequential(
                     nn.ConvTranspose2d(embed_dim, embed_dim, kernel_size=2, stride=2),
-                    BuildNormalization(constructnormcfg(placeholder=embed_dim, norm_cfg=norm_cfg)),
+                    BuildNormalization(placeholder=embed_dim, norm_cfg=norm_cfg),
                     nn.GELU(),
                     nn.ConvTranspose2d(embed_dim, embed_dim, kernel_size=2, stride=2),
                 )
